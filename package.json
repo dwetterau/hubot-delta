@@ -1,0 +1,33 @@
+{
+  "name": "hubot-delta",
+  "version": "0.0.1",
+  "description": "A hubot script that interacts with delta.dwett.com",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script --recursive ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dwetterau/hubot-delta.git"
+  },
+  "keywords": [
+    "hubot",
+    "delta",
+    "event",
+    "planning",
+    "slack"
+  ],
+  "author": "David Wetterau <david.wetterau@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dwetterau/hubot-delta/issues"
+  },
+  "dependencies": {
+    "coffee-script": "~1.6",
+    "request": "^2.57.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  }
+}
