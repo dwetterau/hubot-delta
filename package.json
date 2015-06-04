@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "coffee-script": "~1.6",
+    "moment": "^2.10.3",
     "request": "^2.57.0"
   },
   "devDependencies": {

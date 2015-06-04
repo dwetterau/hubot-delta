@@ -6,6 +6,8 @@ module.exports = (robot, scripts) ->
   fs.exists scriptsDirectory, (doesExist) ->
     if doesExist
       for script in fs.readdirSync scriptsDirectory
+        if script.indexOf('.coffee') == -1
+          continue
         if scripts? and "*" not in scripts
           robot.loadFile(scriptsDirectory, script) if script in scripts
         else

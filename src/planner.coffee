@@ -1,11 +1,11 @@
 EventManager = require './event_manager'
 eventManager = null
 
+Parser = require './parser'
+parser = null
+
 handleCreateEvent = (msg, options) ->
-  if options.indexOf '-' >= 0
-    [name, description] = (x.trim() for x in options.split '-')
-  else
-    name = options
+  [name, description] = parser.parseNameDescription options
   eventManager.createEvent msg, name, description
 
 handleJoinEvent = (msg, options) ->
@@ -13,6 +13,7 @@ handleJoinEvent = (msg, options) ->
 
 module.exports = (robot) ->
   eventManager = new EventManager(robot)
+  parser = new Parser()
 
   robot.hear ///
     ^delta  # Required prefix
