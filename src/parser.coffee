@@ -1,23 +1,25 @@
 class Parser
   constructor: ->
 
-  parseNameDescription: (options) ->
-    if options.indexOf('on') >= 0
-      [name, dateTime] = (x.trim() for x in options.split 'on')
+  parseNameDateTime: (options) ->
+    if options.search(/\s+on\s+/) >= 0
+      [name, dateTime] = (x.trim() for x in options.split /\s+on\s+/)
     if dateTime?
       toTest = dateTime
     else
       toTest = options
 
-    if options.indexOf('at') >= 0
-      [dateOrName, time] = (x.trim() for x in toTest.split 'at')
+    if options.search(/\s+at\s+/) >= 0
+      [dateOrName, time] = (x.trim() for x in toTest.split /\s+at\s+/)
 
     if dateTime?
       if time?
         date = dateOrName
       else
+        date = dateTime
         time = null
     else
+      date = null
       if dateOrName?
         name = dateOrName
       else
